@@ -1,0 +1,9 @@
+---
+
+- name: Apply common configuration to all target nodes
+  hosts: all
+  user: jarrod
+  sudo: yes
+  roles: 
+    - common
+

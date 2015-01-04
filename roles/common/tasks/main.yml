@@ -1,0 +1,36 @@
+---
+#If you're doing lots of packages at once, you can use with_items, and provide the apt: module with pkg={{ item }} and you get something like a foreach in [list] effect.
+
+  - name: upgrade all packages
+    yum: name=* state=latest
+
+  - name: install default package groups
+    yum: name={{ item }} state=latest
+    with_items:
+      - '"@Development Tools"'
+      - '"@Editors"'
+      - '"@C Development Tools and Libraries"'
+      - '"@D Development Tools and Libraries"'
+
+  - name: install default packages
+    yum: name={{ item }} state=latest
+    with_items:
+      - "htop"
+
+  - name: install Python packages
+    yum: name={{ item }} state=latest
+    with_items:
+      - "python-ipython-notebook"
+      - "scipy"
+      - "python-matplotlib"
+      - "Mayavi"
+      - "sympy"
+      - "Cython"
+      - "python-networkx"
+      - "python-networkx-drawing"
+      - "pexpect"
+      - "python-nose"
+      - "python-pip"
+      - "python-sphinx"
+      - "python-pygments"
+      - "python-pandas"
