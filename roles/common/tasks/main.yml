@@ -34,3 +34,7 @@
       - "python-sphinx"
       - "python-pygments"
       - "python-pandas"
+
+  - include: tex.yml
+  - include: rpmfusion.yml tags=test
+  - include: post.yml tags=test

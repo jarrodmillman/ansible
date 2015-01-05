@@ -1,0 +1,7 @@
+---
+- name: install the rpmfusion repo packages
+  yum: name={{ item }}
+       state=present
+  with_items:
+    - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-21.noarch.rpm
+    - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-21.noarch.rpm
