@@ -54,4 +54,4 @@ alias donner='xrandr --addmode DP2 1024x768;xrandr --output eDP1 --mode 1024x768
 #alias projector='xrandr --output eDP1 --mode 1024x768; xrandr --output DP2 --mode 1024x768 ; xrandr --output eDP1 --same-as DP2 '
 alias projector_off='xrandr --output DP2 --off; xrandr --output eDP1 --auto --primary'
 
-
+export ANSIBLE_HOSTS=/home/jarrod/src/ansible/hosts
