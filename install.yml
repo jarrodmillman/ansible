@@ -5,6 +5,5 @@
   user: jarrod
   sudo: yes
   roles: 
-    - common
-    - dev
-    - services tags=test
+    - services
+    - personal

@@ -6,6 +6,8 @@
       - "zsh"
       - "pass"
       - "i3"
+      - "i3-doc"
+      - "i3lock"
       - "i3status"
       - "network-manager-applet"
       - "iotop"

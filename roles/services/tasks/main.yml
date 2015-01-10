@@ -1,0 +1,45 @@
+---
+  - name: remove livecd cruft
+    file: path={{ item }} state=absent
+    with_items:
+     - "/etc/init.d/livesys"
+     - "/etc/init.d/livesys-late"
+
+  - name: disable graphical boot
+    replace: dest=/etc/default/grub regexp='rhgb(\s+)quiet' replace='quiet'
+
+  - name: start in runlevel 3
+    command: /bin/systemctl set-default multi-user.target
+
+  - name: mask services
+    command: /bin/systemctl mask {{ item }}
+    with_items:
+     - "plymouth-start"
+     - "systemd-udev-settle"
+
+  - name: disable services
+    service: name={{ item }} enabled=no
+    with_items:
+     - "ModemManager"
+     - "bluetooth"
+     - "systemd-udev-settle"
+     - "libvirtd"
+     - "dmraid-activation"
+     - "avahi-daemon"
+     - "chronyd"
+
+  - name: uninstall services
+    yum: name={{ item }} state=absent
+    with_items:
+      - "abrt"
+      - "dnf"
+      - "gnome-abrt"
+      - "plymouth"
+      - "plymouth-core-libs"
+      - "plymouth-scripts"
+      - "PackageKit"
+      - "lvm2"
+      - "lvm2-libs"
+      - "libiscsi"
+      - "iscsi-initiator-utils-iscsiuio"
+

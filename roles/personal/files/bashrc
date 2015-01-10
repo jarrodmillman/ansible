@@ -1,0 +1,57 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific aliases and functions
+pushdp () {
+ pushd "$(python -c "import os.path as _, ${1}; \
+   print _.dirname(_.realpath(${1}.__file__[:-1]))"
+ )"
+}
+
+MYBIN=$HOME/usr/bin
+
+export EDITOR=vim
+source /usr/share/git-core/contrib/completion/git-prompt.sh
+#source $MYBIN/bash_completion_tmux.sh
+#source $MYBIN/hub.bash_completion.sh
+export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+alias ipconsole='ipython-qtconsole --paging hsplit --pylab qt'
+
+# history settings
+#export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTCONTROL=ignoredups            # no duplicate entries
+shopt -s histappend                      # append to history, don't overwrite it
+
+# Set prefix for local installs of various projects, mostly python ones
+export PYPREFIX=$HOME/usr/local
+export PYTHON=python2.7
+export PYPATH=lib/$PYTHON/site-packages
+export PYPATH64=lib64/$PYTHON/site-packages
+
+export PYTHONPATH=$HOME/usr/$PYPATH:$HOME/usr/$PYPATH64:$PYPREFIX/$PYPATH:$PYPREFIX/$PYPATH64:
+
+export PATH=$MYBIN:$HOME/.local/bin:$HOME/usr/local/bin:$PYPREFIX/bin:$PATH:
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PYPREFIX/lib
+
+export R_LIBS="$HOME/usr/lib64/R/library"
+alias R="/usr/bin/R --quiet --no-save"
+#alias projector_off='xrandr --output VGA1 --off; xrandr --output LVDS1 --auto --primary'
+#alias projector='xrandr --output VGA1 --mode 1024x768 ; xrandr --output LVDS1 --right-of VGA1 '
+#alias barker='xrandr --output VGA1 --mode 1024x768 --primary --output LVDS1 --below VGA1'
+alias mirror='xrandr --output eDP1 --mode 1024x768; xrandr --output DP2 --mode 1024x768 ; xrandr --output eDP1 --same-as DP2 '
+alias hgrep='history | grep'
+alias 240f='cd ~/src/private/courses/ph240f/'
+alias mplayer='mplayer -af scaletempo'
+alias courses='cd ~/media/vid/courses'
+
+# for ph240f
+export BOWTIE_INDEXES=/usr/share/bowtie/indexes
+alias donner='xrandr --addmode DP2 1024x768;xrandr --output eDP1 --mode 1024x768; xrandr --output DP2 --mode 1024x768 ; xrandr --output eDP1 --same-as DP2 '
+#alias projector='xrandr --output eDP1 --mode 1024x768; xrandr --output DP2 --mode 1024x768 ; xrandr --output eDP1 --same-as DP2 '
+alias projector_off='xrandr --output DP2 --off; xrandr --output eDP1 --auto --primary'
+
+

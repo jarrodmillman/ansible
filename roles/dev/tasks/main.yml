@@ -1,0 +1,27 @@
+---
+  - name: install development tools
+    yum: name="@Development Tools" state=latest
+
+  - name: install C development environment
+    yum: name="@C Development Tools and Libraries" state=latest
+
+  - name: install D development environment
+    yum: name="@C Development Tools and Libraries" state=latest
+
+  - name: install Python packages
+    yum: name={{ item }} state=latest
+    with_items:
+      - "python-ipython-notebook"
+      - "scipy"
+      - "python-matplotlib"
+      - "Mayavi"
+      - "sympy"
+      - "Cython"
+      - "python-networkx"
+      - "python-networkx-drawing"
+      - "pexpect"
+      - "python-nose"
+      - "python-pip"
+      - "python-sphinx"
+      - "python-pygments"
+      - "python-pandas"

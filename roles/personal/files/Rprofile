@@ -1,0 +1,15 @@
+# hard code the US repo for CRAN
+r = getOption("repos")    
+r["CRAN"] = "http://cran.cnr.berkeley.edu/"
+options(repos = r)
+rm(r)
+
+# save and quit (without prompting)
+qs <- function(save="yes") { q(save=save)}
+
+## .First() run at the start of every R session.
+### Use to load commonly used packages?
+.First <- function() {
+  # library(ggplot2)
+  cat("\nSuccessfully loaded .Rprofile at", date(), "\n")
+}
