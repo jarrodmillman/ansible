@@ -1,9 +1,8 @@
 ---
 
-- name: Apply common configuration to all target nodes
+- name: Bootstrap systems after clean install
   hosts: all
-  user: jarrod
-  sudo: yes
+  user: root
   roles: 
-    - services
-    - personal
+    - update
+    - repos

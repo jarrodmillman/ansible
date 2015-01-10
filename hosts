@@ -1,2 +1,5 @@
 [local]
 localhost              ansible_connection=local
+
+[pfc]
+192.168.0.11
