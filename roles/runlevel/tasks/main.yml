@@ -1,0 +1,4 @@
+---
+
+  - name: start in runlevel 5
+    command: /bin/systemctl set-default graphical.target

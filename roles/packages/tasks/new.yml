@@ -1,0 +1,13 @@
+---
+  - name: install default packages
+    yum: name={{ item }} state=present
+    with_items:
+      - "bash-completion"
+      - "man-pages"
+      - "evince"
+      - "gedit"
+      - "wget"
+      - "@Fonts"
+      - "@Multimedia"
+      - "nfs-utils"
+      - "totem-mozplugin"

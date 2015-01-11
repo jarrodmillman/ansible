@@ -1,0 +1,15 @@
+---
+  - name: install Nvidia drivers
+    yum: name="kmod-nvidia" state=latest
+
+  - name: install XFCE development environment
+    yum: name="@xfce" state=latest
+
+  - name: install X
+    yum: name="@X Window System" state=latest
+    when: ansible_distribution == 'CentOS'
+
+  - name: install XFCE extras
+    yum: name={{ item }} state=present
+      with_items:
+        - "xfce4-terminal"

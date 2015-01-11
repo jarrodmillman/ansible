@@ -1,12 +1,24 @@
 ---
-- name: Install EPEL repo.
+- name: Install EPEL repo
   yum:
     name: "{{ epel_repo_url }}"
     state: present
   when: ansible_distribution == 'CentOS'
 
-- name: Import EPEL GPG key.
+- name: Import EPEL GPG key
   rpm_key:
     key: "{{ epel_repo_gpg_key_url }}"
+    state: present
+  when: ansible_distribution == 'CentOS'
+
+- name: Install EL repo
+  yum:
+    name: "{{ elrepo_url }}"
+    state: present
+  when: ansible_distribution == 'CentOS'
+
+- name: Import EL GPG key
+  rpm_key:
+    key: "{{ elrepo_gpg_key_url }}"
     state: present
   when: ansible_distribution == 'CentOS'

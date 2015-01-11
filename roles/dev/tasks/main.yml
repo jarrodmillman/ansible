@@ -2,11 +2,17 @@
   - name: install development tools
     yum: name="@Development Tools" state=latest
 
+  - name: install development tools
+    yum: name="@Additional Development" state=latest
+    when: ansible_distribution == 'CentOS'
+
   - name: install C development environment
     yum: name="@C Development Tools and Libraries" state=latest
+    when: ansible_distribution == 'Fedora'
 
   - name: install D development environment
-    yum: name="@C Development Tools and Libraries" state=latest
+    yum: name="@D Development Tools and Libraries" state=latest
+    when: ansible_distribution == 'Fedora'
 
   - name: install Python packages
     yum: name={{ item }} state=latest
@@ -25,3 +31,5 @@
       - "python-sphinx"
       - "python-pygments"
       - "python-pandas"
+      - "python-virtualenv"
+    when: ansible_distribution == 'Fedora'
