@@ -1,0 +1,12 @@
+---
+- name: start autofs
+  service: name=autofs state=started
+
+- name: restart autofs
+  service: name=autofs state=restarted
+
+- name: stop autofs
+  service: name=autofs state=stopped
+
+- name: reload autofs
+  service: name=autofs state=reloaded

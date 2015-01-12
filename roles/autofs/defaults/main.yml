@@ -1,0 +1,4 @@
+---
+
+  autofs_daemon: autofs
+  autofs_enabled: true

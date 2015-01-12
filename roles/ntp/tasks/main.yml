@@ -1,0 +1,22 @@
+---
+
+- name: set timezone
+  command: timedatectl set-timezone {{ ntp_timezone }}
+
+- name: install NTP
+  yum: name=ntp state=installed
+  when: ansible_os_family == 'CentOS'
+
+- name: ensure NTP is running and enabled at system start
+  service: >
+    name={{ ntp_daemon }}
+    state=started
+    enabled=yes
+  when: ntp_enabled
+
+- name: ensure NTP is stopped and disabled at system start
+  service: >
+    name={{ ntp_daemon }}
+    state=stopped
+    enabled=no
+  when: not ntp_enabled

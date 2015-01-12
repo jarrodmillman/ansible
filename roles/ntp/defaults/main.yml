@@ -1,0 +1,5 @@
+---
+
+  ntp_daemon: ntpd
+  ntp_enabled: true
+  ntp_timezone: America/Chicago

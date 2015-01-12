@@ -8,6 +8,10 @@
 #    - repos
 #    - xfce
 #    - dev
-    - packages
-    - selinux
+#    - packages
+#    - selinux
+#    - ntp
+#    - autofs
+    - ldap
+    - gdm
 #    - runlevel

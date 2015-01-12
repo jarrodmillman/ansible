@@ -1,0 +1,81 @@
+---
+
+- name: ensure mount directory exists
+  file: path=/r state=directory owner=root group=root mode=0775
+ 
+- name: install autofs
+  yum: name=autofs state=installed
+
+- name: add line to auto.master
+  lineinfile: >
+    dest=/etc/auto.master
+    line="/r /etc/auto.remote --timeout=180"
+    insertafter=EOF
+    state=present
+
+- name: add auto.remote
+  copy: >
+    src=auto.remote
+    dest=/etc/auto.remote
+    owner=root
+    group=root
+    mode=0644
+  notify: restart autofs
+
+- name: ensure autofs is running and enabled at system start
+  service: >
+    name={{ autofs_daemon }}
+    state=started
+    enabled=yes
+  when: autofs_enabled
+
+- name: ensure autofs is stopped and disabled at system start
+  service: >
+    name={{ autofs_daemon }}
+    state=stopped
+    enabled=no
+  when: not autofs_enabled
+
+- name: create /usr/fmri link
+  file: >
+    src=/r/fmri
+    dest=/usr/fmri
+    state=link
+
+- name: add fmri.sh to profile
+  copy: >
+    src=fmri.sh
+    dest=/etc/profile.d/fmri.sh
+    owner=root
+    group=root
+    mode=0644
+
+- name: retrieve the list of d0 home directories
+  command: ls /r/d0
+  register: home_d0
+
+- name: add d0 home dirs to /home
+  file: >
+    src=/r/d0/{{ item }}
+    dest=/home/{{ item }}
+    state=link
+  with_items: home_d0.stdout_lines
+
+- name: retrieve the list of d1 home directories
+  command: ls /r/d1
+  register: home_d1
+
+- name: add d1 home dirs to /home
+  file: >
+    src=/r/d1/{{ item }}
+    dest=/home/{{ item }}
+    state=link
+  with_items: home_d1.stdout_lines
+
+- name: add hosts file
+  copy: >
+    src=hosts
+    dest=/etc/hosts
+    owner=root
+    group=root
+    mode=0644

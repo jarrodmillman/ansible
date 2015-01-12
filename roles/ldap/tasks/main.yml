@@ -1,0 +1,29 @@
+---
+
+- name: remove perl-homedir package
+  yum: name=perl-homedir state=absent
+
+- name: install packages needed for ldap clients
+  yum: name={{ item }} state=present
+  with_items:
+    - nss-pam-ldapd
+    - openldap-clients
+
+- name: add openldap client config
+  copy: >
+    src=openldap/ldap.conf
+    dest=/etc/openldap/ldap.conf
+    owner=root
+    group=root
+    mode=0644
+
+- name: add private CA config
+  copy: >
+    src=openldap/certs/cacert.pem
+    dest=/etc/openldap/certs/cacert.pem
+    owner=root
+    group=root
+    mode=0644
+
+- name: ensure ldap configuration installed
+  command: authconfig --enableldap --enableldapauth --ldapserver=ldap://server1.pfc.utdallas.edu:389 --ldapbasedn="dc=pfc,dc=utdallas,dc=edu" --enableldaptls --ldaploadcacert=file:///etc/openldap/certs/cacert.pem --update

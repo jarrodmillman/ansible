@@ -1,0 +1,8 @@
+---
+
+  - name: disable GDM user list
+    copy: >
+      src=00-login-screen
+      dest=/etc/dconf/db/gdm.d/00-login-screen
+    notify: update dconf
+
