@@ -1,0 +1,3 @@
+---
+  - name: install Nvidia drivers
+    yum: name="kmod-nvidia" state=latest

@@ -1,7 +1,4 @@
 ---
-  - name: install Nvidia drivers
-    yum: name="kmod-nvidia" state=latest
-
   - name: install XFCE development environment
     yum: name="@xfce" state=latest
 
@@ -11,5 +8,5 @@
 
   - name: install XFCE extras
     yum: name={{ item }} state=present
-      with_items:
-        - "xfce4-terminal"
+    with_items:
+      - "xfce4-terminal"

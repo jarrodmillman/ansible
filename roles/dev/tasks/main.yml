@@ -2,9 +2,26 @@
   - name: install development tools
     yum: name="@Development Tools" state=latest
 
-  - name: install development tools
-    yum: name="@Additional Development" state=latest
+  - name: install Perl tools
+    yum: name="@Perl Support" state=latest
     when: ansible_distribution == 'CentOS'
+
+  - name: install Python packages
+    yum: name={{ item }} state=latest
+    with_items:
+      - "python-networkx"
+      - "python-matplotlib-qt4"
+      - "Cython"
+      - "pexpect"
+      - "python-pip"
+      - "python-sphinx"
+      - "python-pygments"
+      - "python-virtualenvwrapper"
+    when: ansible_distribution == 'CentOS'
+
+#  - name: install development tools
+#    yum: name="@Additional Development" state=latest
+#    when: ansible_distribution == 'CentOS'
 
   - name: install C development environment
     yum: name="@C Development Tools and Libraries" state=latest
@@ -17,7 +34,6 @@
   - name: install Python packages
     yum: name={{ item }} state=latest
     with_items:
-      - "python-ipython-notebook"
       - "scipy"
       - "python-matplotlib"
       - "Mayavi"
