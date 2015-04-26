@@ -87,5 +87,4 @@
       - "xorg-x11-fonts-ISO8859-1-100dpi"
       - "xorg-x11-fonts-misc"
       - "xorg-x11-proto-devel"
-      - "xterm"
       - "xz-lzma-compat"
