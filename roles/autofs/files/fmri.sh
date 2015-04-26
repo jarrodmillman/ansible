@@ -71,3 +71,9 @@ fi
 export PATH
 
 alias freesurfer43='source /usr/fmri/lib64/freesurfer/fschooser 43'
+alias fsl5.0.8='source /usr/fmri/lib64/fsl/fsl5.0.8'
+
+afninew () {
+    AFNI=${PATH64}/afni/2011_12_21_1014-2015-04-25
+    export PATH=$AFNI:$PATH
+}
