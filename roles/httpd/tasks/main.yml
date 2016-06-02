@@ -1,0 +1,19 @@
+- name: install packages
+  yum:
+    name: httpd
+    state: present
+
+- name: ensure started httpd service
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: make sure symlink exists
+  file:
+    src: /srv/www
+    dest: /var/www/html
+    owner: root
+    group: root
+    state: link
+    force: yes

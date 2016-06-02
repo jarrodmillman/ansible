@@ -21,3 +21,6 @@ pfc.utdallas.edu
 
 [newpfc]
 192.168.0.9
+
+[server]
+192.168.0.29
