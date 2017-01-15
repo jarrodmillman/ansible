@@ -1,0 +1,6 @@
+---
+  - name: install Nvidia drivers
+    yum: name={{ item }} state=present
+    with_items:
+      - "kmod-nvidia"
+      - "nvidia-x11-drv-32bit"

@@ -31,7 +31,6 @@
       - "libssh"
       - "libvdpau"
       - "libX11-devel"
-      - "libx86"
       - "libXau-devel"
       - "libxcb-devel"
       - "libXdamage-devel"

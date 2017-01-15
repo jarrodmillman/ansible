@@ -1,6 +1,6 @@
 ---
   - name: install XFCE development environment
-    yum: name="@xfce" state=latest
+    yum: name="@xfce-desktop" state=present
 
   - name: install X
     yum: name="@X Window System" state=latest
@@ -10,3 +10,12 @@
     yum: name={{ item }} state=present
     with_items:
       - "xfce4-terminal"
+      - "xfce4-screenshooter"
+
+  - name: remove XFCE power manager
+    yum: name={{ item }} state=absent
+    with_items:
+      - "xfce4-power-manager"
+
+  - name: install screen lock
+    yum: name="xscreensaver" state=latest

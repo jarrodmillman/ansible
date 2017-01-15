@@ -1,3 +1,12 @@
 ---
-  - name: install Nvidia drivers
-    yum: name="kmod-nvidia" state=latest
+  - include: nvidia.yml
+    with_items: ["station110", "station111", "station112", "station113"]
+    loop_control:
+      loop_var: new_stations
+    when: ansible_hostname == new_stations
+
+  - include: nvidia-340xx.yml
+    with_items: ["station11", "station12", "station18"]
+    loop_control:
+      loop_var: old_stations
+    when: ansible_hostname == old_stations

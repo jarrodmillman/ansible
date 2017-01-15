@@ -6,6 +6,7 @@
 - name: install packages needed for ldap clients
   yum: name={{ item }} state=present
   with_items:
+    - sssd-ldap
     - nss-pam-ldapd
     - openldap-clients
 
@@ -27,3 +28,11 @@
 
 - name: ensure ldap configuration installed
   command: authconfig --enableldap --enableldapauth --ldapserver=ldap://server1.pfc.utdallas.edu:389 --ldapbasedn="dc=pfc,dc=utdallas,dc=edu" --enableldaptls --ldaploadcacert=file:///etc/openldap/certs/cacert.pem --update
+
+- name: enable secondary groups via ldap
+  copy: >
+    src=sssd.conf
+    dest=/etc/sssd/sssd.conf
+    owner=root
+    group=root
+    mode=0600

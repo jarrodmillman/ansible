@@ -1,18 +1,18 @@
 ---
 
 - name: Bootstrap systems after clean install
-  hosts: pfc-remote
+  hosts: local
   user: root
   roles: 
-#    - update
-#    - repos
-#    - xfce
-#    - dev
+    - update
+    - repos
+    - xfce
+    - dev
 #    - selinux
-#    - ntp
+    - ntp
     - packages
-#    - autofs
-#    - ldap
-
+    - autofs
 #    - gdm
-#    - runlevel
+    - ldap
+#    - nvidia
+##    - runlevel

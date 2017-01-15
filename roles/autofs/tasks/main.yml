@@ -59,7 +59,7 @@
     src=/r/d0/{{ item }}
     dest=/home/{{ item }}
     state=link
-  with_items: home_d0.stdout_lines
+  with_items: "{{ home_d0.stdout_lines }}"
 
 - name: retrieve the list of d1 home directories
   command: ls /r/d1
@@ -70,7 +70,7 @@
     src=/r/d1/{{ item }}
     dest=/home/{{ item }}
     state=link
-  with_items: home_d1.stdout_lines
+  with_items: "{{ home_d1.stdout_lines }}"
 
 - name: add hosts file
   copy: >

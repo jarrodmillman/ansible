@@ -1,4 +1,7 @@
 ---
-#  - include: base.yml
-#  - include: new.yml
+  - include: base.yml
+  - include: new.yml
   - include: extra.yml
+  - include: mricro.yml
+  - include: session.yml
+  - include: packagekit.yml

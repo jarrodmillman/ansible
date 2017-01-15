@@ -1,0 +1,6 @@
+---
+  - name: remove session packages
+    yum: name={{ item }} state=absent
+    with_items:
+      - "gnome-session-xsession"
+      - "gnome-classic-session"

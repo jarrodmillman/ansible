@@ -1,0 +1,8 @@
+---
+  - name: install packages for mricro
+    yum: name={{ item }} state=present
+    with_items:
+      - "zlib.i686"
+      - "libjpeg-turbo.i686"
+      - "dialog.i686"
+      - "libSM.i686"

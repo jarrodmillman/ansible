@@ -4,6 +4,7 @@
     with_items:
       - "gimp"
       - "R"
-
-  - name: install expat compatability library
-    command: yum -y install /home/jarrod/src/ansible/roles/packages/files/compat-expat1-1.95.8-10.el7.centos.x86_64.rpm
+      - "gsl"
+      - "gsl-devel"
+      - "http://192.168.0.2/rpms/compat-expat1-1.95.8-10.el7.centos.x86_64.rpm"
+      - "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"

@@ -1,0 +1,8 @@
+---
+  - name: remove abrt packages
+    yum: name={{ item }} state=absent
+    with_items:
+      - "abrt"
+      - "abrt-libs"
+      - "abrt-gui-libs"
+      - "rubygem-abrt"
