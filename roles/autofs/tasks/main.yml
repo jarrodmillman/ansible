@@ -1,7 +1,7 @@
 ---
 
 - name: ensure mount directory exists
-  file: path=/r state=directory owner=root group=root mode=0775
+  file: path=/r state=directory owner=root group=root mode=0755
  
 - name: install autofs
   yum: name=autofs state=installed
@@ -42,14 +42,6 @@
     dest=/usr/fmri
     state=link
 
-- name: add fmri.sh to profile
-  copy: >
-    src=fmri.sh
-    dest=/etc/profile.d/fmri.sh
-    owner=root
-    group=root
-    mode=0644
-
 - name: retrieve the list of d0 home directories
   command: ls /r/d0
   register: home_d0
@@ -71,11 +63,3 @@
     dest=/home/{{ item }}
     state=link
   with_items: "{{ home_d1.stdout_lines }}"
-
-- name: add hosts file
-  copy: >
-    src=hosts
-    dest=/etc/hosts
-    owner=root
-    group=root
-    mode=0644

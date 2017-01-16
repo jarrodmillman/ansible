@@ -1,5 +1,5 @@
 ---
-  - name: install default packages
+  - name: install new default packages
     yum: name={{ item }} state=present
     with_items:
       - "bash-completion"
@@ -7,9 +7,6 @@
       - "evince"
       - "gedit"
       - "wget"
-      - "@Fonts"
-      - "@Multimedia"
-      - "@printing-client"
       - "nfs-utils"
       - "net-tools"
       - "libreoffice-calc"

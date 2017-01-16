@@ -1,5 +1,5 @@
 ---
-  - name: install default packages
+  - name: install extra default packages
     yum: name={{ item }} state=present
     with_items:
       - "gimp"

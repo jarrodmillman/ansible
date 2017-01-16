@@ -1,14 +1,18 @@
 ---
-  - name: install XFCE development environment
-    yum: name="@xfce-desktop" state=present
-
-  - name: install X
-    yum: name="@X Window System" state=latest
-    when: ansible_distribution == 'CentOS'
-
-  - name: install XFCE extras
+  - name: install XFCE
     yum: name={{ item }} state=present
     with_items:
+      - "Thunar"
+      - "xfce4-panel"
+      - "xfce4-session"
+      - "xfce4-settings"
+      - "xfconf"
+      - "xfdesktop"
+      - "xfwm4"
+      - "gdm"
+      - "openssh-askpass"
+      - "polkit-gnome"
+      - "xfce4-session-engines"
       - "xfce4-terminal"
       - "xfce4-screenshooter"
 

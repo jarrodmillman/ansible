@@ -5,15 +5,16 @@
   user: root
   roles: 
 #    - update
-#    - repos
-#    - xfce
-#    - dev
-#    - selinux
-#    - ntp
-#    - packages
-#    - autofs
-#    - ldap
+    - repos
+    - xfce
+    - dev
+    - selinux
+## ???  - ntp
+    - packages
+    - fmri
+    - autofs
+    - ldap
 #    - gdm
 #    - runlevel
 #    - nvidia
-    - packages
+#    - packages
