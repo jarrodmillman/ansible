@@ -3,7 +3,7 @@
 FMRIBIN=/usr/fmri/bin
 
 PATH64=/usr/fmri/lib64
-AFNI=${PATH64}/afni/2016_05_31_16.1.13
+AFNI=${PATH64}/afni/2017_08_09_17.2.07
 CARET=${PATH64}/caret/5.62/bin_linux64
 MATLAB=${PATH64}/matlab/2016a/bin
 SLICER=${PATH64}/slicer/3.6.3
@@ -26,7 +26,7 @@ export FSLTCLSH=${FSL_BIN}/fsltclsh
 export FSLWISH=${FSL_BIN}/fslwish
 
 # Freesurfer variables
-export FREESURFER_HOME=${PATH64}/freesurfer/5.1.0
+export FREESURFER_HOME=${PATH64}/freesurfer/6.0.0
 FREESURFER_BIN=${FREESURFER_HOME}/bin
 export FIX_VERTEX_AREA=""
 export FMRI_ANALYSIS_DIR=${FREESURFER_HOME}/fsfast

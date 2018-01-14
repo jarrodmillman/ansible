@@ -7,6 +7,7 @@
 #    - update
 #?    - repos
 #?    - xfce
+    - abrt
     - dev
     - selinux
 #?    - ntp
@@ -14,6 +15,7 @@
     - fmri
 #?    - ldap
     - autofs
+    - monitor
 ##    - gdm
 ##    - runlevel
 ##    - nvidia

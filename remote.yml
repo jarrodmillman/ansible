@@ -1,19 +1,21 @@
 ---
 
 - name: Bootstrap systems after clean install
-  hosts: pfc
+  hosts: local
   user: root
   roles: 
 #    - update
 #?    - repos
 #?    - xfce
+    - abrt
     - dev
     - selinux
 #?    - ntp
     - packages
     - fmri
 #?    - ldap
-    - autofs
+#    - autofs
+    - monitor
 ##    - gdm
 ##    - runlevel
 ##    - nvidia

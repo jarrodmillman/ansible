@@ -10,6 +10,10 @@ Dry run using ssh:
     ansible-playbook -i hosts -k -C pfc-bootstrap.yml
 
 
+On remote host:
+
+    sudo ansible-playbook -i hosts  remote.yml
+
 TODO
 ----
 

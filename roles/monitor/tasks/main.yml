@@ -1,0 +1,20 @@
+---
+- name: remove PakageKit packages
+  yum: name={{ item }} state=latest
+  with_items:
+    - "sysstat"
+    - "collectd"
+    - "collectd-rrdtool"
+    - "collectd-web"
+
+- name: ensure sysstat is running and enabled at system start
+  service: >
+    name=sysstat
+    state=started
+    enabled=yes
+
+- name: ensure collectd is running and enabled at system start
+  service: >
+    name=collectd
+    state=started
+    enabled=yes

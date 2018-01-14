@@ -1,3 +1,2 @@
-d0      -rw,fstype=nfs,hard,intr,noatime             192.168.0.52:/nfs-share/public
+d0      -rw,fstype=nfs,hard,intr,noatime,proto=tcp   192.168.0.52:/nfs-share/public
 d1      -rw,fstype=nfs,hard,intr,noatime,proto=tcp   192.168.0.51:/nfs-share/Public
-fmri    -ro,fstype=nfs,async,proto=tcp               192.168.0.2:/srv/nfs/fmri

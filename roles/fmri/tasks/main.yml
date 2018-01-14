@@ -1,5 +1,7 @@
 ---
 
+- name: install blt for freesurfer
+  yum: name=blt state=installed
 
 - name: add fmri.sh to profile
   copy: >
