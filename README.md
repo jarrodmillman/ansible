@@ -18,3 +18,15 @@ TODO
 ----
 
 - "@Development Tools", "@Perl Support", "@C Development Tools and Libraries"
+
+
+Users
+-----
+
+https://dzone.com/articles/user-management-with-ansible
+
+https://serversforhackers.com/c/create-user-in-ansible
+
+http://www.mydailytutorials.com/working-ansible-user-module/
+
+https://github.com/debops/ansible-users

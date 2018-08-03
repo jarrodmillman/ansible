@@ -1,5 +1,5 @@
 ---
-- name: remove PakageKit packages
+- name: add monitoring packages
   yum: name={{ item }} state=latest
   with_items:
     - "sysstat"

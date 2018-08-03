@@ -4,6 +4,9 @@ localhost              ansible_connection=local
 [pfc-remote]
 192.168.0.9
 
+[old-remote]
+192.168.0.109
+
 [new]
 192.168.0.110
 192.168.0.111

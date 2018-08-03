@@ -1,0 +1,11 @@
+- name: install x2go
+  yum: name=x2goserver-xsession state=installed
+
+- name: install fail2ban
+  yum: name=fail2ban state=installed
+
+- name: ensure fail2ban is running and enabled at system start
+  service: >
+    name=fail2ban
+    state=started
+    enabled=yes

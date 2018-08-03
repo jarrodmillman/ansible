@@ -3,8 +3,8 @@
 FMRIBIN=/usr/fmri/bin
 
 PATH64=/usr/fmri/lib64
-AFNI=${PATH64}/afni/2017_08_09_17.2.07
-CARET=${PATH64}/caret/5.62/bin_linux64
+AFNI=${PATH64}/afni/2018_07_31_18.2.06
+CARET=${PATH64}/caret/5.65/bin_linux64
 MATLAB=${PATH64}/matlab/2016a/bin
 SLICER=${PATH64}/slicer/3.6.3
 AIR=${PATH64}/air/5.3.0
@@ -12,7 +12,7 @@ IMCONVERT=${PATH64}/imconvert
 
 
 # FSL variables
-export FSLDIR=${PATH64}/fsl/5.0.9
+export FSLDIR=${PATH64}/fsl/5.0.11
 export FSL_DIR=${FSLDIR}
 export FSL_BIN=${FSLDIR}/bin
 export FSLCONFDIR=${FSLDIR}/config
