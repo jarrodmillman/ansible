@@ -1,15 +1,7 @@
 - name: install NFS packages
   yum:
-    name: '{{ item }}'
+    name: 'nfs-utils'
     state: present
-  with_items: [ 'rpcbind', 'nfs-utils' ]
-
-- name: ensure NFS started
-  service:
-    name: '{{ item }}'
-    state: started
-    enabled: yes
-  with_items: [ 'rpcbind', 'nfs-utils' ]
 
 - name: Copy exports file.
   copy:
@@ -19,3 +11,12 @@
     group: root
     mode: 0644
   notify: restart nfs
+
+- name: ensure NFS started
+  service:
+    name: '{{ item }}'
+    state: started
+    enabled: yes
+  loop:
+    - 'nfs'
+    - 'nfs-lock'

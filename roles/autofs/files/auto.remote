@@ -1,2 +1,4 @@
 d0      -rw,fstype=nfs,hard,intr,noatime,proto=tcp   192.168.0.52:/nfs-share/public
 d1      -rw,fstype=nfs,hard,intr,noatime,proto=tcp   192.168.0.51:/nfs-share/Public
+d2      -rw,fstype=nfs,hard,intr,noatime,proto=tcp   192.168.0.109:/srv/d2
+d3      -rw,fstype=nfs,hard,intr,noatime,proto=tcp   192.168.0.109:/srv/d3
